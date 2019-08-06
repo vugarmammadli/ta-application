@@ -35,3 +35,9 @@ class TACreateView(generics.ListCreateAPIView):
         '''Save the post data when creating a new TA.
         '''
         serializer.save()
+
+class TADetailsView(generics.RetrieveDestroyAPIView):
+    '''Handles the GET and DELETE requests of the rest api for individual TA.
+    '''
+    serializer_class = TeachingAssistantSerializer
+    queryset = TeachingAssistant.objects.all()
