@@ -1,0 +1,212 @@
+POST https://ta-application-django.herokuapp.com/applicants/
+
+{
+    "student_number": 100,
+    "given_name": "Mike",
+    "family_name": "Tyson",
+    "status": "MSc",
+    "year": 3
+}
+
+=================================
+
+GET https://ta-application-django.herokuapp.com/applicants/
+
+[
+    {
+        "student_number": 100,
+        "given_name": "Mike",
+        "family_name": "Tyson",
+        "status": "MSc",
+        "year": 1,
+        "courses": []
+    },
+    {
+        "student_number": 111,
+        "given_name": "Michael",
+        "family_name": "Scofield",
+        "status": "PhD",
+        "year": 1,
+        "courses": []
+    }
+]
+
+=================================
+
+GET https://ta-application-django.herokuapp.com/applicants?status=msc
+
+[
+    {
+        "student_number": 100,
+        "given_name": "Mike",
+        "family_name": "Tyson",
+        "status": "MSc",
+        "year": 1,
+        "courses": []
+    }
+]
+
+=================================
+
+GET https://ta-application-django.herokuapp.com/applicants?fname=scofield
+
+[
+    {
+        "student_number": 111,
+        "given_name": "Michael",
+        "family_name": "Scofield",
+        "status": "PhD",
+        "year": 1,
+        "courses": []
+    }
+]
+
+=================================
+
+GET https://ta-application-django.herokuapp.com/applicant/111
+
+{
+    "student_number": 111,
+    "given_name": "Michael",
+    "family_name": "Scofield",
+    "status": "PhD",
+    "year": 1,
+    "courses": []
+}
+
+=================================
+
+DELETE https://ta-application-django.herokuapp.com/applicant/100/
+GET https://ta-application-django.herokuapp.com/applicant/100/
+
+{
+    "detail": "Not found."
+}
+
+=================================
+
+POST https://ta-application-django.herokuapp.com/courses/
+
+{
+    "code": "CSC108",
+    "name": "Introduction to Computer Programming",
+    "description": "Programming in a language such as Python. Elementary data types, lists, maps. Program structure: control flow, functions, classes, objects, methods. Algorithms and problem solving. Searching, sorting, and complexity. Unit testing. No prior programming experience required."
+}
+
+=================================
+
+GET https://ta-application-django.herokuapp.com/courses/
+
+[
+    {
+        "code": "CSC108",
+        "name": "Introduction to Computer Programming",
+        "description": "Programming in a language such as Python. Elementary data types, lists, maps. Program structure: control flow, functions, classes, objects, methods. Algorithms and problem solving. Searching, sorting, and complexity. Unit testing. No prior programming experience required."
+    },
+    {
+        "code": "CSC236",
+        "name": "Introduction to the Theory of Computation",
+        "description": "The application of logic and proof techniques to Computer Science. Mathematical induction; correctness proofs for iterative and recursive algorithms; recurrence equations and their solutions; introduction to automata and formal languages."
+    },
+    {
+        "code": "CSC369",
+        "name": "Operating Systems",
+        "description": "Principles of operating systems. The operating system as a control program and as a resource allocator. The concept of a process and concurrency problems: synchronization, mutual exclusion, deadlock. Additional topics include memory management, file systems, process scheduling, threads, and protection."
+    }
+]
+
+=================================
+
+GET https://ta-application-django.herokuapp.com/courses?course=csc236
+
+[
+    {
+        "code": "CSC236",
+        "name": "Introduction to the Theory of Computation",
+        "description": "The application of logic and proof techniques to Computer Science. Mathematical induction; correctness proofs for iterative and recursive algorithms; recurrence equations and their solutions; introduction to automata and formal languages."
+    }
+]
+
+=================================
+
+POST https://ta-application-django.herokuapp.com/applications/
+
+{
+    "applicant": 111,
+    "course": "CSC236",
+    "rank": 3,
+    "experience": 2
+}
+
+=================================
+
+GET https://ta-application-django.herokuapp.com/applications/
+
+[
+    {
+        "applicant": 102,
+        "course": "CSC108",
+        "rank": 1,
+        "experience": 4
+    },
+    {
+        "applicant": 111,
+        "course": "CSC108",
+        "rank": 1,
+        "experience": 1
+    },
+    {
+        "applicant": 111,
+        "course": "CSC236",
+        "rank": 3,
+        "experience": 2
+    }
+]
+
+=================================
+
+GET https://ta-application-django.herokuapp.com/applicants/
+
+[
+    {
+        "student_number": 111,
+        "given_name": "Michael",
+        "family_name": "Scofield",
+        "status": "PhD",
+        "year": 1,
+        "courses": [
+            {
+                "code": "CSC108",
+                "rank": 1,
+                "experience": 1
+            },
+            {
+                "code": "CSC236",
+                "rank": 3,
+                "experience": 2
+            }
+        ]
+    },
+    {
+        "student_number": 102,
+        "given_name": "Jack",
+        "family_name": "Michael",
+        "status": "MSc",
+        "year": 2,
+        "courses": [
+            {
+                "code": "CSC108",
+                "rank": 1,
+                "experience": 4
+            }
+        ]
+    },
+    {
+        "student_number": 100,
+        "given_name": "Jason",
+        "family_name": "Statham",
+        "status": "MEng",
+        "year": 3,
+        "courses": []
+    }
+]
