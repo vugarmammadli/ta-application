@@ -2,7 +2,7 @@
 
 A simple part of a TA application system using the RESTful API approach using [Python Django Web Framework](https://www.djangoproject.com/) and [Django REST Framework](https://django-rest-framework.org) which is a powerful and flexible toolkit for building Web APIs.
 
-The final version of the project can be found [here](https://ta-application-django.herokuapp.com/applicants/).
+The online version of the project can be found [here](https://ta-application-django.herokuapp.com/applicants/). Feel free to play around :)
 
 ## REST Specifications
 ### Applicants
@@ -23,26 +23,42 @@ The final version of the project can be found [here](https://ta-application-djan
 - `POST /applications/` Applicant applies TAship for a course. Required fields are *applicant*, *course*, *rank* and *experience*.
 
 ## How to run
-
+The live version of the project is available [here](https://ta-application-django.herokuapp.com/applicants/). Feel free to play around. But if you would like to test it in your local machine, please follow these steps:
 - First of all, please make sure that you have installed [Python](https://www.python.org/downloads/) in your machine.
 - Install virtualenv globally as well
-```pip install virtualenv```
+	```bash
+		pip install virtualenv
+	```
 - Clone this repository to your local machine
-```git clone https://github.com/vugarmammadli/ta-application.git```
+	```bash
+		git clone https://github.com/vugarmammadli/ta-application.git
+	```
 - Change your directory to this repository
-```cd ta-application```
+	```bash
+		cd ta-application
+	```
 - Create your virtual environment
-```virtualenv venv -p python3```
-```source venv/bin/activate```
+	```bash
+		virtualenv venv -p python3
+		source venv/bin/activate
+	```
 - Install all the requirements for this project
-```pip install -r requirements.txt```
+	```bash
+		pip install -r requirements.txt
+	```
 - Make all migrations
-```python manage.py makemigrations```
-```python manage.py migrate```
+	```bash
+		python manage.py makemigrations
+		python manage.py migrate
+	```
 - Run it
-```python manage.py runserver```
+	```bash
+		python manage.py runserver
+	```
 - Finally, enjoy :)
-```http://127.0.0.1:8000/applicants/```
+	```bash
+		http://127.0.0.1:8000/applicants/
+	```
 
 ## Extra details
 
