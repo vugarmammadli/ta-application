@@ -1,8 +1,8 @@
 from django.shortcuts import render
 
 from rest_framework import generics
-from .serializers import TeachingAssistantSerializer, CourseSerializer
-from .models import TeachingAssistant, Course
+from .serializers import TeachingAssistantSerializer, CourseSerializer, ApplicationSerializer
+from .models import TeachingAssistant, Course, Application
 
 class TACreateView(generics.ListCreateAPIView):
     '''Handles the GET and POST requests of the rest api for TAs.
@@ -66,4 +66,8 @@ class CourseCreateView(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         '''Save the post data when creating a new TA.
         '''
-        serializer.save()    
+        serializer.save()
+
+class ApplicationCreateView(generics.ListCreateAPIView):
+    serializer_class = ApplicationSerializer
+    queryset = Application.objects.all()

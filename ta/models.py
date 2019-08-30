@@ -24,8 +24,11 @@ class Course(models.Model):
         return "{}: {}".format(self.code, self.name)
 
 class Application(models.Model):
-    applicant = models.ForeignKey(TeachingAssistant, on_delete=models.CASCADE)
+    applicant = models.ForeignKey(TeachingAssistant, related_name='courses', on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     rank = models.IntegerField()
     experience = models.IntegerField()
     
+    class Meta:
+        unique_together = ['applicant', 'course']
+        ordering = ['rank']
